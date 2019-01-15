@@ -73,12 +73,14 @@ export default {
     size: 'Tamaño global'
   },
   login: {
-    title: 'INICIA SESIÓN',
+    regtitle: 'Regístrate en OasisCom',
+    title: 'Inicia sesión en OasisCom',
+    subtitle: 'Cloud Solutions V4.5',
     logIn: 'INGRESAR',
     username: 'Usuario',
     password: 'Contraseña',
     forgot: 'Olvidé mi contraseña',
-    alternativeLogin: 'Ingresa con',
+    alternativeLogin: 'O ingresa con',
     createAccount: '-CREA UNA CUENTA GRATIS-',
     any: 'nada',
     thirdparty: 'Conectar con',

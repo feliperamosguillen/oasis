@@ -73,7 +73,9 @@ export default {
     size: 'Global Size'
   },
   login: {
-    title: 'Login Form',
+    regtitle: 'Sig in OasisCom',
+    title: 'Login in OasisCom',
+    subtitle: 'Cloud Solutions V4.5',
     logIn: 'Log in',
     username: 'Username',
     password: 'Password',

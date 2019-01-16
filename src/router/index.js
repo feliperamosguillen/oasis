@@ -33,6 +33,11 @@ import nestedRouter from './modules/nested'
 **/
 export const constantRouterMap = [
   {
+    path: '/forgot',
+    component: () => import('@/views/forgot/forgot'),
+    hidden: true
+  },
+  {
     path: '/redirect',
     component: Layout,
     hidden: true,

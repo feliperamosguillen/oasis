@@ -79,7 +79,7 @@
         <div class="registration"/>
       </el-form>
 
-      <el-form ref="registrationForm" :style="{ display: showRegistration }" :model="registrationForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
+      <el-form ref="registrationForm" :style="{ display: showRegistration }" class="login-form" auto-complete="on" label-position="left">
         <div class="title-container">
           <h3 class="title poppins-regular">{{ $t('login.regtitle') }}</h3>
           <lang-select class="set-language"/>
@@ -98,7 +98,7 @@
         </el-form-item>
         <div class="password-head">
           <label class="label-input">{{ $t('login.password') }}</label>
-          <div class="forgot">
+          <div class="forgot" @click.native.prevent="handleForgot">
             {{ $t('login.forgot') }}
           </div>
         </div>
@@ -237,5 +237,7 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-
+.forgot{
+  cursor: pointer;
+}
 </style>

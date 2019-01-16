@@ -85,8 +85,23 @@ export default {
     }
   }
 
+  .alternative-login a {
+    margin: 5px;
+    margin-top: 10px;
+    position: relative;
+    top: 10px;
+  }
+
+  .color-green{
+    color: #6ca22b;
+  }
+
   button.el-button.bt-green{
     font-weight: bold; margin-bottom:30px; margin-left: 35%; border-radius: 50px; background-color: #6ca22b; border-color: #6ca22b; width: 35%;
+  }
+
+  button.el-button.bt-green:hover{
+    opacity: 0.55;
   }
 
   /* reset element-ui css */
@@ -119,11 +134,10 @@ export default {
     .login-lateral{
       width: 30%;
       background-image: url('/src/assets/custom-theme/images/lateral-login.jpg');
-      background-size: 100% auto;
+      background-size: cover;
       background-repeat: no-repeat;
       background-position: 0px 0px;
-      max-height: 1200px;
-      height: 657px;
+      height: 100vh;
       display: inline-block;
       vertical-align: top;
       position: relative;
@@ -159,13 +173,46 @@ export default {
 
     .contenido-lateral {
       width: 100%;
-      height: 100%;
-      min-height: 200px;
-      position: absolute;
-      top: 60%;
+      height: 170px;
+      position: relative;
+      top: 55%;
       left: 0px;
       color: #fff;
-      padding: 0px 30% 0% 15%;
+      padding: 0% 30% 0% 15%;
+    }
+
+    .redes-lateral{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      padding: 5% 30% 0% 15%;
+      display: block;
+      top: 55%;
+    }
+
+    .in-circle{
+      color: #3f7eac;
+      top: 4px;
+      position: relative;
+    }
+
+    .in-circle-linkedin{
+      color: #3f7eac;
+      top: -10px;
+      position: relative;
+    }
+
+    .circle{
+      width: 40px;
+      height: 40px;
+      background-color: #ffffff;
+      border-radius: 30px;
+      padding: 15px 10px 0px 10px;
+    }
+
+    .redes-lateral a:not(:first-child){
+      margin-left: 10px;
     }
 
     .login-content {

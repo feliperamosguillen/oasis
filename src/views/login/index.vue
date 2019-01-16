@@ -3,12 +3,19 @@
     <div class="login-lateral">
       <div class="layer"/>
       <div class="contenido-lateral">
-        <h4>OasisCom</h4>
-        <h2>Cloud Solutions</h2>
+        <h4 class="poppins-semi-bold">OasisCom</h4>
+        <h2 class="poppins-regular">Cloud Solutions</h2>
         <hr >
         <p>
           Tú te enfocas en CRECER, CLOUD SOLUTIONS administra la información.
         </p>
+      </div>
+      <div class="redes-lateral">
+        <a class="circle"><i class="zmdi zmdi-facebook zmdi-hc-2x in-circle"/></a>
+        <a><i class="zmdi zmdi-twitter zmdi-hc-2x"/></a>
+        <a><i class="zmdi zmdi-instagram zmdi-hc-2x"/></a>
+        <a><i class="zmdi zmdi-youtube-play zmdi-hc-2x"/></a>
+        <a class="circle"><i class="zmdi zmdi-linkedin zmdi-hc-lg in-circle-linkedin"/></a>
       </div>
     </div>
     <div class="login-content">
@@ -17,7 +24,7 @@
       </div>
       <el-form ref="loginForm" :style="{ display: showLogin }" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
         <div class="title-container">
-          <h3 class="title">{{ $t('login.title') }}</h3>
+          <h3 class="title poppins-regular">{{ $t('login.title') }}</h3>
           <lang-select class="set-language"/>
           <h5 class="subtitle">{{ $t('login.subtitle') }}</h5>
         </div>
@@ -61,10 +68,12 @@
         <div style="position:relative" class="alternative-login">
           {{ $t('login.alternativeLogin') }}
           <br >
-          <a><img src="/src/assets/custom-theme/images/ico-fb.png" alt="Facebook"></a>
-          <a><img src="/src/assets/custom-theme/images/ico-win.png" alt="Windows"></a>
+          <a><i class="zmdi zmdi-facebook-box zmdi-hc-2x"/></a>
+          <a><i class="zmdi zmdi-windows zmdi-hc-2x color-green"/></a>
+          <!--
           <br >
           <el-button class="thirdparty-button" type="primary" @click="showLogin='none';showRegistration='block'">{{ $t('login.createAccount') }}</el-button>
+          -->
         </div>
 
         <div class="registration"/>
@@ -72,7 +81,7 @@
 
       <el-form ref="registrationForm" :style="{ display: showRegistration }" :model="registrationForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
         <div class="title-container">
-          <h3 class="title">{{ $t('login.regtitle') }}</h3>
+          <h3 class="title poppins-regular">{{ $t('login.regtitle') }}</h3>
           <lang-select class="set-language"/>
           <h5 class="subtitle">{{ $t('login.subtitle') }}</h5>
         </div>
@@ -113,10 +122,12 @@
         <div style="position:relative" class="alternative-login">
           {{ $t('login.alternativeLogin') }}
           <br >
-          <a><img src="/src/assets/custom-theme/images/ico-fb.png" alt="Facebook"></a>
-          <a><img src="/src/assets/custom-theme/images/ico-win.png" alt="Windows"></a>
+          <a><i class="zmdi zmdi-facebook-box zmdi-hc-2x"/></a>
+          <a><i class="zmdi zmdi-windows zmdi-hc-2x color-green"/></a>
+          <!--
           <br >
           <el-button class="thirdparty-button" type="primary" @click="showLogin='block';showRegistration='none'">{{ $t('login.createAccount') }}</el-button>
+          -->
         </div>
 
         <div class="registration"/>

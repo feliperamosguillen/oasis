@@ -4,13 +4,26 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 @import './btn.scss';
-
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/material-colors/1.2.6/colors.css');
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  /*font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;*/
+  font-family: 'Open Sans', sans-serif;
+}
+
+.poppins-semi-bold{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.poppins-regular{
+  font-family: 'Poppins', sans-serif;
 }
 
 label {

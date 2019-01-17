@@ -141,6 +141,9 @@
         <div class="registration"/>
       </el-form>
     </div>
+
+    <Solutions />
+    <Footer />
   </div>
 </template>
 
@@ -148,10 +151,12 @@
 import { isvalidUsername } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect'
 import SocialSign from './socialsignin'
+import Solutions from './solutions'
+import Footer from './footer'
 
 export default {
   name: 'Login',
-  components: { LangSelect, SocialSign },
+  components: { LangSelect, SocialSign, Solutions, Footer },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!isvalidUsername(value)) {
@@ -254,10 +259,14 @@ export default {
   top: 35px;
   right: 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 340px;
   align-content: center;
   align-items: center;
+
+  @media (min-width: 666px){
+    justify-content: space-between;
+  }
 }
 
 .not-account{

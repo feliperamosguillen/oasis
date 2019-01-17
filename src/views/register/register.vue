@@ -95,15 +95,20 @@
         <div class="registration"/>
       </el-form>
     </div>
+    <Solutions />
+    <Footer />
   </div>
 </template>
 
 <script>
 import { validateEmail } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect'
+import Solutions from '../login/solutions'
+import Footer from '..//login/footer'
+
 export default {
   name: 'Register',
-  components: { LangSelect },
+  components: { LangSelect, Solutions, Footer },
   data() {
     const validEmail = (rule, value, callback) => {
       if (!validateEmail(value)) {

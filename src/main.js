@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+import BootstrapVue from 'bootstrap-vue'
 import Cookies from 'js-cookie'
 
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
@@ -19,11 +19,15 @@ import './errorLog' // error log
 import './permission' // permission control
 import './mock' // simulation data
 
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import * as filters from './filters' // global filters
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium', // set element-ui default size
-  i18n: (key, value) => i18n.t(key, value)
+  i18n: (key, value) => i18n.t(key, value),
+  BootstrapVue
 })
 
 // register global utility filters.

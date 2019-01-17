@@ -38,6 +38,11 @@ export const constantRouterMap = [
     hidden: true
   },
   {
+    path: '/register',
+    component: () => import('@/views/register/register'),
+    hidden: true
+  },
+  {
     path: '/redirect',
     component: Layout,
     hidden: true,

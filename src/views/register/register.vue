@@ -23,38 +23,45 @@
         <img src="/src/assets/custom-theme/images/logo-oasis.png" alt="OasisCom" >
 
         <div class="super-content">
-          <div class="not-account">¿No tienes una cuenta?</div>
-          <router-link to="/register">
-            <el-button :loading="loading" class="bt-register" type="primary" >REGISTRATE</el-button>
+          <div class="not-account">¿Tienes una cuenta?</div>
+          <router-link to="/login">
+            <el-button :loading="loading" class="bt-register" type="primary">INICIA SESIÓN</el-button>
           </router-link>
         </div>
       </div>
 
       <el-form ref="loginForm" :style="{ display: showLogin }" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
         <div class="title-container">
-          <h3 class="title poppins-regular">{{ $t('login.title') }}</h3>
-          <!--<lang-select class="set-language"/>-->
-          <h5 class="subtitle">{{ $t('login.subtitle') }}</h5>
+          <h3 class="title poppins-regular">
+            Regístrate en OasisCom.
+          </h3>
+          <h5 class="subtitle">Llena los datalles abajo.</h5>
         </div>
-        <label class="label-input">{{ $t('login.username') }}</label>
-        <el-form-item prop="username">
+
+        <label class="label-input">Correo eletrónico</label>
+        <el-form-item prop="email">
           <span class="svg-container">
             <svg-icon icon-class="user" />
           </span>
           <el-input
-            v-model="loginForm.username"
-            :placeholder="$t('login.username')"
-            name="username"
+            v-model="loginForm.email"
+            placeholder="example@cloudcom.net"
+            name="email"
             type="text"
             auto-complete="on"
           />
         </el-form-item>
-        <div class="password-head">
-          <label class="label-input">{{ $t('login.password') }}</label>
-          <div class="forgot">
-            {{ $t('login.forgot') }}
-          </div>
-        </div>
+        <label class="label-input">Nombre</label>
+        <el-form-item prop="name">
+          <el-input
+            v-model="loginForm.name"
+            placeholder="John Doe"
+            name="name"
+            type="text"
+            auto-complete="on"
+          />
+        </el-form-item>
+        <label class="label-input">Contraseña</label>
         <el-form-item prop="password">
           <span class="svg-container">
             <svg-icon icon-class="password" />
@@ -78,63 +85,10 @@
           <br >
           <a><i class="zmdi zmdi-facebook-box zmdi-hc-2x icon-overgrren"/></a>
           <a><i class="zmdi zmdi-windows zmdi-hc-2x icon-overgrren"/></a>
+
           <!--
           <br >
           <el-button class="thirdparty-button" type="primary" @click="showLogin='none';showRegistration='block'">{{ $t('login.createAccount') }}</el-button>
-          -->
-        </div>
-
-        <div class="registration"/>
-      </el-form>
-
-      <el-form ref="registrationForm" :style="{ display: showRegistration }" class="login-form" auto-complete="on" label-position="left">
-        <div class="title-container">
-          <h3 class="title poppins-regular">{{ $t('login.regtitle') }}</h3>
-          <lang-select class="set-language"/>
-          <h5 class="subtitle">{{ $t('login.subtitle') }}</h5>
-        </div>
-        <label class="label-input">{{ $t('login.username') }}</label>
-
-        <el-form-item prop="username">
-          <el-input
-            v-model="loginForm.username"
-            :placeholder="$t('login.username')"
-            name="username"
-            type="text"
-            auto-complete="on"
-          />
-        </el-form-item>
-        <div class="password-head">
-          <label class="label-input">{{ $t('login.password') }}</label>
-          <div class="forgot" @click.native.prevent="handleForgot">
-            {{ $t('login.forgot') }}
-          </div>
-        </div>
-
-        <el-form-item prop="password">
-          <el-input
-            :type="passwordType"
-            v-model="loginForm.password"
-            :placeholder="$t('login.password')"
-            name="password"
-            auto-complete="on"
-            @keyup.enter.native="handleLogin" />
-        </el-form-item>
-
-        <el-button :loading="loading" class="bt-green" type="primary" @click.native.prevent="handleLogin">{{ $t('login.logIn') }}</el-button>
-
-        <div style="position:relative; display: none;" class="forgot">
-          {{ $t('login.forgot') }}
-        </div>
-
-        <div style="position:relative" class="alternative-login">
-          {{ $t('login.alternativeLogin') }}
-          <br >
-          <a><i class="zmdi zmdi-facebook-box zmdi-hc-2x"/></a>
-          <a><i class="zmdi zmdi-windows zmdi-hc-2x"/></a>
-          <!--
-          <br >
-          <el-button class="thirdparty-button" type="primary" @click="showLogin='block';showRegistration='none'">{{ $t('login.createAccount') }}</el-button>
           -->
         </div>
 
@@ -145,36 +99,45 @@
 </template>
 
 <script>
-import { isvalidUsername } from '@/utils/validate'
+import { validateEmail } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect'
-import SocialSign from './socialsignin'
-
 export default {
-  name: 'Login',
-  components: { LangSelect, SocialSign },
+  name: 'Register',
+  components: { LangSelect },
   data() {
-    const validateUsername = (rule, value, callback) => {
-      if (!isvalidUsername(value)) {
-        callback(new Error('Por favor escribe un nombre de usuario correcto.'))
+    const validEmail = (rule, value, callback) => {
+      if (!validateEmail(value)) {
+        callback(new Error('Por favor escribe un email correcto.'))
       } else {
         callback()
       }
     }
-    const validatePassword = (rule, value, callback) => {
+
+    const validName = (rule, value, callback) => {
       if (value.length < 6) {
-        callback(new Error('El password no puede ser menor a 6 digitos.'))
+        callback(new Error('Por favor escribe tu nombre correctamente.'))
+      } else {
+        callback()
+      }
+    }
+
+    const validPassword = (rule, value, callback) => {
+      if (value.length < 6) {
+        callback(new Error('El password no puede ser menor de 6 digitos.'))
       } else {
         callback()
       }
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '1111111'
+        name: '',
+        email: '',
+        password: ''
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        email: [{ required: true, trigger: 'blur', validator: validEmail }],
+        name: [{ required: true, trigger: 'blur', validator: validName }],
+        password: [{ required: true, trigger: 'blur', validator: validPassword }]
       },
       passwordType: 'password',
       loading: false,
@@ -209,13 +172,7 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true
-          this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
-            this.loading = false
-            this.$router.push({ path: this.redirect || '/' })
-          }).catch(() => {
-            this.loading = false
-          })
+          alert('Usuario registrado correctamente.')
         } else {
           console.log('error submit!!')
           return false
@@ -223,22 +180,6 @@ export default {
       })
     },
     afterQRScan() {
-      // const hash = window.location.hash.slice(1)
-      // const hashObj = getQueryObject(hash)
-      // const originUrl = window.location.origin
-      // history.replaceState({}, '', originUrl)
-      // const codeMap = {
-      //   wechat: 'code',
-      //   tencent: 'code'
-      // }
-      // const codeName = hashObj[codeMap[this.auth_type]]
-      // if (!codeName) {
-      //   alert('第三方登录失败')
-      // } else {
-      //   this.$store.dispatch('LoginByThirdparty', codeName).then(() => {
-      //     this.$router.push({ path: '/' })
-      //   })
-      // }
     }
   }
 }
@@ -251,13 +192,22 @@ export default {
 
 .super-content{
   position: absolute;
-  top: 35px;
+  top: 128px;
   right: 2rem;
-  display: flex;
-  justify-content: space-between;
   width: 340px;
-  align-content: center;
-  align-items: center;
+  display: block;
+  text-align: right;
+
+  @media (min-width: 475px){
+    top: 35px;
+  }
+
+  @media (min-width: 660px){
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
 }
 
 .not-account{
@@ -304,6 +254,10 @@ export default {
   transition: 0.5s all ease;
 }
 
+.el-button.bt-green {
+  min-width: 110px;
+}
+
 .circle-fb{
   width: 40px;
   height: 40px;
@@ -335,6 +289,7 @@ export default {
   padding-left: 20px;
   padding-right: 20px;
 }
+
 .redes-lateral {
     position: relative;
     width: 100%;

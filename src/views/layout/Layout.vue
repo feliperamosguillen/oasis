@@ -181,14 +181,18 @@ export default {
       padding: 0% 30% 0% 15%;
     }
 
-    .redes-lateral{
+    .redes-lateral--org{
       position: relative;
       width: 100%;
       height: 100%;
       color: #fff;
-      padding: 5% 30% 0% 15%;
+      padding: 5% 20% 0% 15%;
       display: block;
-      top: 55%;
+      top: 60%;
+
+      @media (min-width: 1130px){
+        top: 55%;
+      }
     }
 
     .in-circle{
